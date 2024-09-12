@@ -1,7 +1,7 @@
 import {Typography as MuiTypography} from "@mui/material";
 
 import typographyStyle from "./TypographyStyle";
-import ITypographyProps from "./Types";
+import {ITypographyProps} from "./Types";
 
 export const Typography = ({
                                text,
@@ -26,8 +26,7 @@ export const Typography = ({
             gutterBottom={gutterBottom}
             align={align}
             fontWeight={fontWeight}
-            // color={textColor}
-            sx={{textDecoration: textDecoration, ...optionalStyles}}
+            sx={{textDecoration: textDecoration, color: textColor, ...optionalStyles}}
         >
             {text}
         </MuiTypography>

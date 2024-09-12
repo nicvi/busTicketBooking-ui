@@ -1,2 +1,2 @@
 export { BusCard } from './BusCard';
-export type { BusCardProps } from './BusCardType';
+export type { BusCardProps } from './Types';

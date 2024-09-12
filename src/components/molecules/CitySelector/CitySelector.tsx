@@ -1,19 +1,13 @@
 import React from 'react';
 import {Dropdown} from "../../atoms";
-
-interface CitySelectorProps {
-    cities: string[];
-    origin: string;
-    destination: string;
-    onOriginChange: (e:any) => void;
-    onDestinationChange: (e:any) => void;
-}
+import {CitySelectorProps} from "./Types";
+import {citySelectorStyle} from "./CitySelectorStyle";
 
 export const CitySelector: React.FC<CitySelectorProps> = (
     { cities, origin, destination, onOriginChange, onDestinationChange }
 ) => {
     return (
-        <div style={{ display: 'flex', gap: '16px' }}>
+        <div style={citySelectorStyle}>
             <Dropdown
                 label="Origin City"
                 options={cities}
@@ -29,4 +23,3 @@ export const CitySelector: React.FC<CitySelectorProps> = (
         </div>
     );
 };
-

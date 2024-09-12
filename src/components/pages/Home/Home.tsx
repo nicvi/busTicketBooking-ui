@@ -1,4 +1,4 @@
-import SelectorForm from "../../organisms/SelectorForm/SelectorForm";
+import {SelectorForm} from "../../organisms/SelectorForm";
 
 export const Home = () => {
 

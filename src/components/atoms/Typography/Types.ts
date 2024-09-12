@@ -1,3 +1,5 @@
+import React from "react";
+
 export type TypographyVariant =
     | "body2"
     | "button"
@@ -20,7 +22,7 @@ export type TypographyColor =
     | "textPrimary"
     | "textSecondary";
 
-interface ITypographyProps {
+export interface ITypographyProps {
     text: string | number;
     size?: string | number;
     padding?: string;
@@ -33,5 +35,3 @@ interface ITypographyProps {
     fontWeight?: number;
     optionalStyles?: React.CSSProperties;
 }
-
-export default ITypographyProps;

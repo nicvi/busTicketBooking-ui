@@ -7,7 +7,7 @@ import {CityContext} from "../../../context";
 import {useNavigate} from "react-router-dom";
 import {ITicketBooking} from "../../../models";
 
-const SelectorForm: React.FC = () => {
+export const SelectorForm: React.FC = () => {
     const navigate = useNavigate();
     const {cities, fetchCities} = useContext(CityContext);
     const [origin, setOrigin] = useState<string>("");
@@ -63,5 +63,3 @@ const SelectorForm: React.FC = () => {
         </Box>
     );
 };
-
-export default SelectorForm;

@@ -1,10 +1,7 @@
 import React from 'react';
 import { TextField } from '@mui/material';
+import {DatePickerProps} from "./Types";
 
-interface DatePickerProps {
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
 
 export const DatePicker: React.FC<DatePickerProps> = ({ value, onChange }) => {
     return (

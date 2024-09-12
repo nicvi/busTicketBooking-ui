@@ -1,43 +1,29 @@
 import React from 'react';
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-
-interface DropdownProps {
-    label: string;
-    options: string[];
-    value: string;
-    onChange: (e:any) => void;
-}
+import {DropdownProps} from "./Types";
+import {formControlStyles} from "./DropdownStyle";
 
 export const Dropdown: React.FC<DropdownProps> = ({ label, options, value, onChange }) => {
-
-    const styles = {
-        formControl: {
-            margin: 0,
-            fullWidth: true,
-            backgroundColor: "#9ee",
-            display: "flex",
-            wrap: "nowrap"
-        }
-    };
-
-    const mstyles = {
-        minWidth: 340,
-        maxWidth: '100%',
-    }
-
+    const idLabel = `${label.replace(/\s+/g, '-')}-label`;
     return (
         <FormControl
             fullWidth
             size="medium"
-            style={mstyles}
+            style={formControlStyles}
         >
             <InputLabel
                 size="normal"
-                // sx={{minWidth: 'calc(100%)', }}
+                id={idLabel}
             >
                 {label}
             </InputLabel>
-            <Select value={value} onChange={onChange} label={label} variant={"outlined"}>
+            <Select
+                value={value}
+                onChange={onChange}
+                label={label}
+                variant={"outlined"}
+                labelId={idLabel}
+            >
                 {options.map((option, index) => (
                     <MenuItem key={index} value={option}>
                         {option}
