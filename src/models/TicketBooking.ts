@@ -1,4 +1,4 @@
-export interface ITicketBooking {
+export interface TicketBooking {
     origin: string;
     destination: string;
     departureDate: string;

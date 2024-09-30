@@ -5,7 +5,8 @@ import {Button, DatePicker} from "../../atoms";
 import { Box } from '@mui/material';
 import {CityContext} from "../../../context";
 import {useNavigate} from "react-router-dom";
-import {ITicketBooking} from "../../../models";
+import {TicketBooking} from "../../../models";
+import {Snackbar} from "../../atoms/SnackBar";
 
 export const SelectorForm: React.FC = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ export const SelectorForm: React.FC = () => {
     const [destination, setDestination] = useState<string>("");
     const [departureDate, setDepartureDate] = useState<string>('');
     const [seats, setSeats] = useState<string>('1');
+    const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
 
     useEffect(() => {
         fetchCities();
@@ -22,7 +24,7 @@ export const SelectorForm: React.FC = () => {
 
     const handleContinue = () => {
         if (origin !== ""  && destination !== "" && departureDate !== ""){
-            const ticketBooking: ITicketBooking = {
+            const ticketBooking: TicketBooking = {
                 departureDate,
                 seats: Number(seats),
                 origin,
@@ -31,9 +33,12 @@ export const SelectorForm: React.FC = () => {
             localStorage.setItem('ticketBooking', JSON.stringify(ticketBooking));
             navigate("/time-selection", { state: ticketBooking });
         }else {
-            console.log("Please complete booking information");
+            setShowSnackBar(true);
         }
-        console.log({ origin, destination, departureDate, seats });
+    };
+
+    const handleSnackbarClose = () => {
+        setShowSnackBar(false);
     };
 
     return (
@@ -60,6 +65,12 @@ export const SelectorForm: React.FC = () => {
                 onTicketChange={(e) => setSeats(e.target.value as string)}
             />
             <Button text="Continue" onClick={handleContinue} />
+            <Snackbar
+                message="Please complete booking information"
+                open={showSnackBar}
+                onClose={handleSnackbarClose}
+                severity="warning"
+            />
         </Box>
     );
 };
