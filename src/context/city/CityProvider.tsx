@@ -17,7 +17,7 @@ export function CityProvider({children}: ICityProviderProps) {
         setLoading(true);
     };
 
-    const fetchCities = useCallback(async ()=> { // : Promise<string[] | undefined>
+    const fetchCities = useCallback(async ()=> {
         resetState();
         try {
             const fetchedCities = await getCities();
@@ -28,10 +28,6 @@ export function CityProvider({children}: ICityProviderProps) {
             setLoading(false);
         }
     }, []);
-
-    // useEffect(() => {
-    //     fetchCities()
-    // }, [fetchCities]);
 
     const contextValue: CityContextValue = {
         cities,

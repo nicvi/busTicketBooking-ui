@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom'; // for additional matchers like toBeInTheDocument
-import { Dropdown } from './Dropdown'; // Adjust the import to the correct path
-import { DropdownProps } from './Types'; // Adjust the import to the correct path
+import '@testing-library/jest-dom';
+import { Dropdown } from './Dropdown';
+import { DropdownProps } from './Types';
 
 describe('Dropdown Component', () => {
     const mockOptions = ['Option 1', 'Option 2', 'Option 3'];
